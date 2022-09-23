@@ -1,0 +1,42 @@
+<h2>Por Region {{region | uppercase}}</h2>
+<hr>
+<div class="container">
+<div class="row justify-content-md-center" >
+    <div class="col-md-auto" 
+    *ngFor="let reg of regiones"
+     (click)="buscar(reg)">
+        <button class="btn btn-outline-primary" id="boton">{{reg.code}}{{reg.description}}</button>
+    </div>
+</div>
+</div>
+<hr>
+<h2>Por Region</h2>
+<div class="row justify-content-md-left">
+    <div class="col-md-auto" 
+    *ngFor="let reg of regionesl"
+    (click)="activarRegion(reg)">
+        <button class="btn btn-outline-primary" id="boton">{{reg | titlecase}}</button>
+    </div>
+</div>
+<app-pais-tabla [resultados]="resultados" [hayError]="hayError"></app-pais-tabla>
+<!-- <div class="ro">
+    <div class="col">
+        <app-barra-busqueda
+         (onNewPais) = "buscar($event)"
+         ></app-barra-busqueda>
+    </div>
+</div>
+
+<hr>
+
+<div class="alert alert-danger"
+*ngIf="hayError">
+    no se encontro nada con el termino {{region}}
+</div>
+
+<div class="row">
+    <div class="col">
+<app-pais-tabla [resultados]="resultados" [hayError]="hayError"></app-pais-tabla>
+
+    </div>
+</div> -->

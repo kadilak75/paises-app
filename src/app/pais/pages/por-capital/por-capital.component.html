@@ -1,0 +1,18 @@
+<h2>Por Capital</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-barra-busqueda (onNewPais)="buscar($event)"></app-barra-busqueda>
+    </div>
+</div>
+<hr>
+
+<div class="alert alert-danger" *ngIf="hayError">
+    no se encontró ninguna capital llamada {{capital}}
+</div>
+<div class="row">
+    <div class="col">
+        <app-pais-tabla [hayError]="hayError" [resultados]="resultados"></app-pais-tabla>
+    </div>
+</div>

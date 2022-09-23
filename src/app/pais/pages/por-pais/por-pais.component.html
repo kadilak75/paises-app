@@ -1,0 +1,35 @@
+<h2>Por País</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+            <app-barra-busqueda
+            (onNewPais)="buscar($event)"
+            (onDebounce)="sugerencias($event)"></app-barra-busqueda>
+    </div>
+</div>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-action"
+         *ngFor="let pais of sugerenciaPais">
+            <a class="nav-link" [routerLink]="['/pais', pais.cioc]">{{pais.name}}</a>
+        </li>
+        <li class="list-group-item list-group-item-action">
+            <a class="nav-link"
+            (click)="buscar(porPais)">buscar {{porPais}}</a>
+        </li>
+    </ul>
+
+
+<hr>
+
+<div class="alert alert-danger"
+*ngIf="hayError">
+    no se encontro nada con el termino {{porPais}}
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-pais-tabla [resultados]="resultados" [hayError]="hayError"></app-pais-tabla> 
+    </div>
+</div>
